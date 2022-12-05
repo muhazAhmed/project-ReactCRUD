@@ -1,0 +1,58 @@
+*{
+    background-color: black;
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
+}
+.app{
+    display: flex;
+    justify-content: center;
+
+    .link{
+        text-decoration: none;
+    }
+
+    .navbar{
+        .container{
+            padding: 1em 0em;
+            display: flex;
+            justify-content:space-around;
+
+
+            .logo{
+                img{
+                    width: 10em;
+                    margin-right: 50em;
+                }
+            }
+            .links{
+                display: flex;
+                align-items: center;
+                gap: 2em;
+
+                h6{
+                    font-size: 1em;
+                    font-weight: 300;
+                }
+
+                span{
+                    cursor: pointer;
+                }
+            }
+        }        
+    }
+    .footer{
+        margin-top: 10em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgb(170, 161, 161);
+        font-size: 0.8em;
+    }
+
+    .home{
+        display: flex;
+        margin-top: 10em;
+        align-items: center;
+        justify-content: center;
+    }
+}
