@@ -1,11 +1,15 @@
 const express = require('express')
+const cors = require("cors")
 const app = express()
 const port = 8800
-const cors = require("cors");
 require("dotenv").config();
 const mongoose=require("mongoose")
-const route = require ("./route")
+const route = require ("./router/route")
 const cookieParser = require("cookie-parser")
+
+app.use(cors())
+app.use(express.json())
+app.use(cookieParser())
 
 
 mongoose.connect(process.env.MONGO_CONNECTION,{useNewUrlParser:true})
@@ -17,14 +21,8 @@ mongoose.connect(process.env.MONGO_CONNECTION,{useNewUrlParser:true})
 
 
 app.use('/',route)
-app.use(express.json())
-app.use(cookieParser())
-
-app.get('/', (req, res) => {
-  res.send('Api is working...')
-})
 
 
 app.listen(port, () => {
-  console.log(`Express app running on port ${port}`)
+  console.log(`Server is running on port ${port}`)
 })
