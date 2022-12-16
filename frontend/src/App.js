@@ -9,14 +9,15 @@ import {
   Outlet,
 } from "react-router-dom";
 import "./style.scss"
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Update from "./components/Update";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Update from "./pages/Update";
 import Footer from "./components/Footer";
-import About from "./components/About";
-import Contact from "./components/Contact";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Dashboard from "./pages/Dashboard";
 
 function Layout() {
   return (
@@ -33,7 +34,10 @@ const router = createBrowserRouter([
     path: "/",
         element : <Layout/>,
         children: [
-          { path: "/", element: <Home /> }
+            {path: "/", element: <Home />},
+            {path: "/user/dashboard", element: <Dashboard />},
+            {path: "/user/update", element: <Update />},
+          
         ],
   },
   {
@@ -43,10 +47,6 @@ const router = createBrowserRouter([
   {
     path: "/Login",
     element: <Login/>,
-  },
-  {
-    path: "/user/update",
-    element: <Update/>,
   },
 ])
 
