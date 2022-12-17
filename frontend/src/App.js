@@ -1,9 +1,6 @@
 import React from "react";
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
   createBrowserRouter,
   RouterProvider,
   Outlet,
@@ -18,6 +15,7 @@ import Footer from "./components/Footer";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
+import PaymentGateway from "./pages/PaymentGateway";
 
 function Layout() {
   return (
@@ -37,6 +35,9 @@ const router = createBrowserRouter([
             {path: "/", element: <Home />},
             {path: "/user/dashboard", element: <Dashboard />},
             {path: "/user/update", element: <Update />},
+            {path: "/contact", element: <Contact />},
+            {path: "/about", element: <About />},
+            {path: "/user/buy", element: <PaymentGateway />},
           
         ],
   },

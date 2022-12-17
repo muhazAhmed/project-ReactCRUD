@@ -30,7 +30,7 @@ const Update = () => {
   return (
     <div className="auth2">
       <form>
-      <h1>REGISTER</h1>
+      <h1>Update Profile</h1>
         <input
           required
           type="text"
@@ -47,21 +47,21 @@ const Update = () => {
         />
         <input
           required
-          type="password"
-          placeholder="password"
-          name="password"
+          type="number"
+          placeholder="phone"
+          name="phone"
           onChange={handleChange}
         />
 
-        <button onClick={handleSubmit} className='form-btn' >Register</button>
+        <button onClick={handleSubmit} className='form-btn' >Update</button>
         {err && <p>{err}</p>}
         <span>
-          Aldready a member?{" "}
+          Cancle Update?{" "}
           <Link
             style={{ textDecoration: "none", color: "#ff9899", "backgroundColor": "inherit" }}
-            to="/login"
+            to="/user/dashboard"
           >
-            Login here
+            Dashboard
           </Link>
         </span>
       </form>
