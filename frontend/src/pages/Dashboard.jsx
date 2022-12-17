@@ -7,7 +7,7 @@ const Dashboard = () => {
   const { currentUser } = useContext(AuthContext);
 
   return (
-    <div className='dash-main'>
+    <div className='dash-main' data-aos="zoom-out">
     <div>
       <h3>Your Name : {currentUser?.username}</h3>
       <h3>Your Email : {currentUser?.email} </h3>

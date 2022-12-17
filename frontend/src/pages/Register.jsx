@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Footer from '../components/Footer';
 
 const Register = () => {
   const [inputs, setInputs] = useState({
@@ -29,8 +30,9 @@ const Register = () => {
   };
 
   return (
-    <div className="auth2">
-      <form>
+    <div className="auth2" >
+    <div className='xt' data-aos="zoom-out">
+      <form style={{"height" : "23em"}} data-aos="zoom-in">
       <h1>REGISTER</h1>
         <input
           required
@@ -72,7 +74,8 @@ const Register = () => {
             Login here
           </Link>
         </span>
-      </form>
+      </form></div>
+      <Footer/>
     </div>
   );
 };

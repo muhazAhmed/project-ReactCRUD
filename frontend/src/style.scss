@@ -49,6 +49,13 @@ $blue : rgb(62, 223, 255);
         justify-content: center;
         color: rgb(170, 161, 161);
         font-size: 0.8em;
+
+        button{
+            color: rgb(170, 161, 161);
+            font-size: 0.8em;
+            margin-left: 100%;
+            cursor: pointer;
+        }
     }
 
     .home-main{
@@ -64,7 +71,7 @@ $blue : rgb(62, 223, 255);
             border: 0.2em solid $blue;
             border-radius: 0.8em;
             width: 10vw;
-            margin-top: 10em;
+            margin-top: 8em;
             cursor: pointer;
             color: white;
     
@@ -79,8 +86,21 @@ $blue : rgb(62, 223, 255);
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        margin-bottom: 1em;
         
-        height: 100vh;
+
+        .xt{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            border: 0.2em solid $blue;
+            height: 50vh;
+            width: 40vw;
+            border-radius: 1em; 
+            margin-top: 12em;
+
+        }
     
         h1{
             font-size: 1.2em;
@@ -89,6 +109,7 @@ $blue : rgb(62, 223, 255);
             display: flex;
             justify-content: center;
         }
+
     
         form{
             display: flex;
@@ -97,6 +118,7 @@ $blue : rgb(62, 223, 255);
             border: 0.1em solid $blue;
             border-radius: 1.5em;
             width: 15em;
+            height: 20em;
             gap: 1.2em;
     
             input{
@@ -170,7 +192,7 @@ $blue : rgb(62, 223, 255);
             align-items: center;
             border: 0.2em solid $blue;
             height: 50vh;
-            width: 50vw;
+            width: 45vw;
             border-radius: 1em; 
             margin-top: 5em;
             

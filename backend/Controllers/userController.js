@@ -32,7 +32,7 @@ const register = async (req, res) => {
     if (!Body.phone) {
       return res.status(400).json("Please enter phone number");
     }
-    const Phoneregx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const Phoneregx = /^[0-9]{10}$/;
     let Phone = Phoneregx.test(Body.phone);
     if (!Phone) {
       return res.status(400).json("Please enter valid Phone number.");

@@ -58,8 +58,8 @@ const Contact = () => {
   return (
     <div className='contact'>
       <div>
-          <div className='form'>
-        <form method="POST">
+          <div className='form'data-aos="slide-down" >
+        <form method="POST" data-aos="zoom-in">
           <h1>Contact &nbsp; <span>Us</span></h1>
         <div>
           <input required type="text" placeholder="Your Name" name='name' autoComplete='off' value={userData.name} onChange={postUserData} /></div>
