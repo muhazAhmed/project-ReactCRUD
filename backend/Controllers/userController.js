@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 const register = async (req, res) => {
   try {
     let Body = req.body;
-    const { username, email, password } = Body;
+    const { username, email, phone, password } = Body;
 
     if (!Body.username) {
       return res.status(400).json("Please enter username");
@@ -26,6 +26,22 @@ const register = async (req, res) => {
     const dublicateEmail = await userModel.findOne({ email: email });
     if (dublicateEmail) {
       return res.status(400).json(" Email Already Exists");
+    }
+    
+    //==================> Phone validation <=======================
+    if (!Body.phone) {
+      return res.status(400).json("Please enter phone number");
+    }
+    const Phoneregx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let Phone = Phoneregx.test(Body.phone);
+    if (!Phone) {
+      return res.status(400).json("Please enter valid Phone number.");
+    }
+
+    //<===================
+    const dublicatePhone = await userModel.findOne({ phone });
+    if (dublicatePhone) {
+      return res.status(400).json(" Number Already Exists");
     }
 
     //==================> password validation <=======================
@@ -87,7 +103,7 @@ const loginUser = async function (req, res) {
       res.cookie("access_token", token, 
       {
         httpOnly: true,
-      }).status(200).json({User,token});
+      }).status(200).json(User);
       
     } catch (error) {
       return res.status(500).json(error.message);
