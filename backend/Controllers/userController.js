@@ -103,7 +103,7 @@ const loginUser = async function (req, res) {
       res.cookie("access_token", token, 
       {
         httpOnly: true,
-      }).status(200).json(User);
+      }).status(200).json({User, token});
       
     } catch (error) {
       return res.status(500).json(error.message);
@@ -114,7 +114,9 @@ const loginUser = async function (req, res) {
 //==================> Update user <=======================
 const updateUser = async (req,res) => {
     try {
-        
+      let body = req.body
+        const updatedUser = await userModel.updateOne({_id: req.params.id}, {$set : body})
+        return res.status(200).json(updatedUser)
     } catch (error) {
         return res.status(500).json(error.message);
     }
@@ -129,6 +131,9 @@ const logout = (req, res) => {
 const deleteUser = async (req,res) => {
     try {
         
+      const deletedUser = await userModel.deleteOne({_id : req.params.id})
+      return res.status(200).json(deletedUser)
+      
     } catch (error) {
         return res.status(500).json(error.message);
     }

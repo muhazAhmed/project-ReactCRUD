@@ -29,7 +29,8 @@ const Update = () => {
 
   return (
     <div className="auth2">
-      <form>
+    <div className='xt' style={{"marginTop" : "4.5em"}} data-aos="zoom-out">
+      <form data-aos="zoom-in">
       <h1>Update Profile</h1>
         <input
           required
@@ -65,6 +66,7 @@ const Update = () => {
           </Link>
         </span>
       </form>
+      </div>
     </div>
   );
 };

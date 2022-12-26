@@ -16,6 +16,9 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 import PaymentGateway from "./pages/PaymentGateway";
+import Employ from "./pages/Employ";
+import AddEmp from "./pages/AddEmp";
+import NotFound from "./pages/NotFound";
 
 function Layout() {
   return (
@@ -37,8 +40,10 @@ const router = createBrowserRouter([
             {path: "/user/update", element: <Update />},
             {path: "/contact", element: <Contact />},
             {path: "/about", element: <About />},
-            {path: "/user/buy", element: <PaymentGateway />},
-          
+            {path: "/donate", element: <PaymentGateway />},
+            {path: "/employ", element: <Employ /> },
+            {path: "/employ/add", element: <AddEmp /> },
+            {path : "/*", element: <NotFound/>}
         ],
   },
   {

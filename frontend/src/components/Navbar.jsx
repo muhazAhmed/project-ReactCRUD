@@ -26,8 +26,8 @@ const Navbar = () => {
               <h6>Contact Us</h6>
             </Link>
 
-            <Link to="/user/dashboard" style={{"textDecoration" : "none"}}>
-            <span>{currentUser?.username}</span></Link>
+            <Link to="/user/update" style={{"textDecoration" : "none"}}>
+            <span>{currentUser?.User.username}</span></Link>
             {currentUser ? (
               <Link to="/login" style={{"textDecoration" : "none"}}>
             <span onClick={logout}>Logout</span></Link>
