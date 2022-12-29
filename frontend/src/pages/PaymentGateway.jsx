@@ -9,7 +9,7 @@ const PaymentGateway = () => {
 
   const initPayment = (data) => {
 		const options = {
-			key: "YOUR_RAZORPAY_KEY",
+			key: "rzp_test_1OXW88PjbXA5Iu",
 			amount: data.amount,
 			currency: data.currency,
 			description: "Test Transaction",
@@ -42,12 +42,17 @@ const PaymentGateway = () => {
   }
 
   return (
+	<div>
+	<h2  data-aos="slide-down" style={{"display" : "flex", "justifyContent" : "center", "marginBottom" : "2em", "marginTop" : "5em"}}>
+	If you like our work, Please Donate
+	</h2>
     <div className='payment' data-aos="zoom-in">
     <div className='pymnt-container'>
     <p className='pymnt-price'> Donate : <span> &#x20B9; {buy.amount} </span></p>
     <button onClick={handlePayment} className="dnt-btn">Donate</button>
     </div>
     </div>
+	</div>
   )
 }
 

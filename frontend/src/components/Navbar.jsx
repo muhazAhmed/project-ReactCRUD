@@ -26,6 +26,10 @@ const Navbar = () => {
               <h6>Contact Us</h6>
             </Link>
 
+            <Link className="link" to="/donate">
+              <h6>Donate Us</h6>
+            </Link>
+
             <Link to="/user/update" style={{"textDecoration" : "none"}}>
             <span>{currentUser?.User.username}</span></Link>
             {currentUser ? (
