@@ -1,6 +1,6 @@
-import React from 'react'
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect } from 'react'
+import { useState  } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const Employ = () => {
@@ -11,22 +11,32 @@ const Employ = () => {
         Designation: "",
       });
       const [err, setError] = useState(null);
+      let { id } = useParams() 
     
       const navigate = useNavigate();
     
       const handleChange = (e) => {
         setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
       };
+
+      useEffect(() => {
+        fetchEmp ();
+      }, [])
     
       const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          await axios.put("http://localhost:8800/api/user/emp/:id", inputs);
+            await axios.put(`http://localhost:8800/api/user/emp/${id}`, inputs)
           navigate("/user/dashboard");
         } catch (err) {
-          setError(err.response.data);
+          console.log(err.message);
         }
       };
+
+      const fetchEmp =async () => {
+        const result = await axios.get(`http://localhost:8800/api/user/emp/${id}`);
+        setInputs(result.data)
+      }
 
   return (
     <div className="auth2" >
@@ -62,7 +72,7 @@ const Employ = () => {
           onChange={handleChange}
         />
 
-        <button onClick={handleSubmit} className='form-btn' >ADD</button>
+        <button onClick={handleSubmit} className='form-btn' >Update</button>
         {err && <p>{err}</p>}
         <span>
           Cancle Edit ?{" "}
@@ -70,7 +80,7 @@ const Employ = () => {
             style={{ textDecoration: "none", color: "#ff9899", "backgroundColor": "inherit" }}
             to="/user/dashboard"
           >
-            Dashboard
+            dashboard
           </Link>
         </span>
       </form></div>
