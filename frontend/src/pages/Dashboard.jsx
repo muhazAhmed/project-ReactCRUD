@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
 
@@ -7,17 +7,18 @@ const Dashboard = () => {
   const [emp, setEmp] = useState({});
 
   const location = useLocation();
-  const {currentUser} = useContext(AuthContext)
+  const { currentUser } = useContext(AuthContext);
 
   const empId = location.pathname.split("/")[2];
 
-  useEffect (() => {
-    getAllEmp()
-  }, [])
-
-  const getAllEmp = async () => {
-    await axios.get("/users/emp")
+  const fetchEmp =async () => {
+    const result = await axios.get("http://localhost:8800/api/user/emp");
+    setEmp(result.data);
   }
+
+  useEffect (() => {
+    fetchEmp();
+  },[])
 
   const handleDelete = async () => {
     try {
@@ -26,6 +27,15 @@ const Dashboard = () => {
       console.log(error.message);
     }
   };
+
+  const test = async () => {
+    alert(`Deleted`)
+  }
+
+  const handle = async () => {
+    handleDelete();
+    test();
+  }
 
   return (
     <div className="dash-main">
@@ -36,51 +46,41 @@ const Dashboard = () => {
       </Link>
       <table className="table">
         <thead data-aos="slide-up">
-        <tr>
-          <th>Name </th>
-          <th>Age </th>
-          <th>Salary P/A</th>
-          <th>Position </th>
-          <th>Update </th>
-          <th>Delete </th>
-        </tr>
+          <tr>
+            <th>No. </th>
+            <th>Name </th>
+            <th>Age </th>
+            <th>Salary P/A</th>
+            <th>Designation </th>
+            <th>Update </th>
+            <th>Delete </th>
+          </tr>
         </thead>
         <tbody data-aos="slide-up">
-        {/* {emp.map((emp, index) => ( */}
-          <tr>
-          {/* <th>{index + 1}</th> */}
-            <td data-label="Name">{emp.Name}</td>
-            <td data-label="Age">{emp.Age}</td>
-            <td data-label="Salary">{emp.Salary}</td>
-            <td data-label="Position">{emp.Designation}</td>
+          {Object.keys(emp).map((item, index) => (
+            <tr>
+              <td>{index+1}</td>
+              <td key={item.Name}>{item.Name} </td>
+              <td key={item.Age}>{item.Age}</td>
+              <td key={item.Salary}>{item.Salary}</td>
+              <td key={item.Designation}>{item.Designation}</td>
             <td data-label="Update">
-              { currentUser.username === emp.Name &&
-                <Link to={`/employ/edit/${emp.id}`}>
+              {currentUser.username === emp.Name && (
+                <Link to={`/employ/edit`}>
                   <i className="fa-regular fa-pen-to-square"></i>
                 </Link>
-              }
+              )}
             </td>
             <td data-label="Delete">
               {
-                <Link onClick={handleDelete}>
+                <Link onClick={handle}>
                   <i className="fa-solid fa-trash"></i>
                 </Link>
               }
             </td>
-          </tr>
-          {/* ))} */}
-          <tr>
-            <td data-label="Name">Sahima</td>
-            <td data-label="Age">20</td>
-            <td data-label="Salary">1199999</td>
-            <td data-label="Position">Frontend Developer</td>
-            <td data-label="Update">
-              <i className="fa-regular fa-pen-to-square"></i>
-            </td>
-            <td data-label="Delete">
-              <i className="fa-solid fa-trash"></i>
-            </td>
-          </tr>
+            </tr>
+          ))}
+          
         </tbody>
       </table>
     </div>
