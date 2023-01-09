@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
   createBrowserRouter,
   RouterProvider,
   Outlet,
@@ -41,7 +40,7 @@ const router = createBrowserRouter([
             {path: "/contact", element: <Contact />},
             {path: "/about", element: <About />},
             {path: "/donate", element: <PaymentGateway />},
-            {path: "/employ", element: <Employ /> },
+            {path: "/employ/edit", element: <Employ /> },
             {path: "/employ/add", element: <AddEmp /> },
             {path : "/*", element: <NotFound/>}
         ],
