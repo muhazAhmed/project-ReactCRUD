@@ -183,8 +183,25 @@ $blue : rgb(62, 223, 255);
             }
             td{
                 padding: 0.8em 0.9em;
-                border: 0.01em solid $blue;
                 text-align: center;
+                border: 0.01em solid $blue;
+
+                
+                .fa-regular{
+                    cursor: pointer;
+                    
+                    &:hover{
+                        color: rgb(66, 255, 82);
+                    }
+                }
+
+                .fa-solid{
+                    cursor: pointer;
+
+                    &:hover{
+                        color: rgb(255, 58, 58);
+                    }
+                }
             }
         }
     }
