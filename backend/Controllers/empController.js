@@ -6,16 +6,16 @@ const addEmp = async (req,res) => {
         let data = req.body
         let {Name, Age, Salary, Designation} = data
 
-        if (!data.Name) {
+        if (!Name) {
             return res.status(400).json("Please enter a name")
         }
-        if (!data.Age) {
+        if (!Age) {
             return res.status(400).json("Please enter Age")
         }
-        if (!data.Salary) {
+        if (!Salary) {
             return res.status(400).json("Please enter Salary")
         }
-        if (!data.Designation) {
+        if (!Designation) {
             return res.status(400).json("Please enter Designation")
         }
 
@@ -31,8 +31,8 @@ const getEmp = async (req,res) => {
         let data = req.body
         let {Name, Age, Salary, Designation} = data
 
-        let getData = await empModel.find(data)
-        return res.status(200).json({data:getData})
+        let getData = await empModel.find()
+        return res.status(200).json(getData)
 
     } catch (error) {
         return res.status(500).json(error.message);
@@ -60,8 +60,8 @@ const deleteEmp = async (req,res) => {
                 return res.status(401).json(err.message)
             }
             
-            const deletedEmp = empModel.deleteOne({_id : empId})
-            return res.status(204).json("Employ deleted Successfully", deletedEmp)
+            const deletedEmp = empModel.findByIdAndDelete({_id : empId})
+            return res.status(204).json("Employ deleted Successfully")
         })
 
     } catch (error) {
