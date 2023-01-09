@@ -61,7 +61,7 @@ const deleteEmp = async (req,res) => {
             }
             
             const deletedEmp = empModel.findByIdAndDelete({_id : empId})
-            return res.status(204).json("Employ deleted Successfully")
+            return res.status(200).json("Employ deleted Successfully")
         })
 
     } catch (error) {
