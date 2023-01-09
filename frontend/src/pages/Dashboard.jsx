@@ -57,13 +57,13 @@ const Dashboard = () => {
           </tr>
         </thead>
         <tbody data-aos="slide-up">
-          {Object.keys(emp).map((item, index) => (
-            <tr>
+          {Object.entries(emp).map((item, index) => (
+            <tr key={item}>
               <td>{index+1}</td>
-              <td key={item.Name}>{item.Name} </td>
-              <td key={item.Age}>{item.Age}</td>
-              <td key={item.Salary}>{item.Salary}</td>
-              <td key={item.Designation}>{item.Designation}</td>
+              <td>{item[1].Name}{console.log(item)} </td>
+              <td>{item[1].Age}</td>
+              <td>{item[1].Salary}</td>
+              <td>{item[1].Designation}</td>
             <td data-label="Update">
               {currentUser.username === emp.Name && (
                 <Link to={`/employ/edit`}>
