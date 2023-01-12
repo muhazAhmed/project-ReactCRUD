@@ -40,7 +40,7 @@ const router = createBrowserRouter([
             {path: "/contact", element: <Contact />},
             {path: "/about", element: <About />},
             {path: "/donate", element: <PaymentGateway />},
-            {path: "/employ/edit", element: <Employ /> },
+            {path: "/employ/edit/:id", element: <Employ /> },
             {path: "/employ/add", element: <AddEmp /> },
             {path : "/*", element: <NotFound/>}
         ],
