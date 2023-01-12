@@ -34,11 +34,20 @@ $blue : rgb(62, 223, 255);
                 h6{
                     font-size: 1em;
                     font-weight: 300;
-                }
 
+                    &:hover{
+                        color: $blue;
+                    }
+                }
+                
                 span{
                     cursor: pointer;
+
+                    &:hover{
+                        color: $blue;
+                    }
                 }
+                
             }
         }        
     }
@@ -55,6 +64,10 @@ $blue : rgb(62, 223, 255);
             font-size: 0.8em;
             margin-left: 100%;
             cursor: pointer;
+
+            &:hover{
+                color: $blue;
+            }
         }
     }
 
@@ -155,7 +168,32 @@ $blue : rgb(62, 223, 255);
 
     .dash-main{
         box-sizing: border-box;
-        margin-top: 4em;
+        margin-top: 5em;
+
+        .search{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            
+            i{
+                position: absolute;
+                margin-right: 11rem;
+            }
+            
+            input{
+            width: 14rem;
+            height: 2.5rem;
+            border: 0.2rem solid $blue;
+            border-radius: 2rem;
+            text-align: center;
+            
+            &:focus{
+                border: none;
+            }
+        }
+        }
+        
         
         button{
             padding: 1em;
@@ -180,6 +218,7 @@ $blue : rgb(62, 223, 255);
                 padding: 0.8em 0.9em;
                 border: 0.01em solid $blue;
                 background-color: $blue;
+                color: black;
             }
             td{
                 padding: 0.8em 0.9em;
@@ -224,7 +263,7 @@ $blue : rgb(62, 223, 255);
             justify-content: center;
             align-items: center;
             border: 0.2em solid $blue;
-            height: 50vh;
+            height: 48vh;
             width: 45vw;
             border-radius: 1em; 
             margin-top: 5em;
@@ -232,7 +271,7 @@ $blue : rgb(62, 223, 255);
             form {
                 display: flex;
             flex-direction: column;
-            padding: 4em;
+            padding: 3em;
             border: 0.1em solid $blue;
             border-radius: 1.5em;
             width: 15em;
@@ -398,6 +437,79 @@ $blue : rgb(62, 223, 255);
 
                     i{
                         color: white;
+                    }
+                }
+            }
+        }
+    }
+    .modalBackground {
+        z-index: 1;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 20rem;
+        border-radius: 2rem;
+        
+            .modalContainer {
+                border: 0.2rem solid white;
+                width: 48rem;
+                height: 22rem;
+                padding: 1rem;
+                border-radius: 2rem;
+                display: flex;
+                flex-direction: column;
+        
+                .title {
+                    text-align: center;
+                    margin-top: 10px;
+                }
+      
+                .titleCloseBtn {
+                    display: flex;
+                    justify-content: flex-end;
+        
+                    button {
+                        font-size: 1.1rem;
+                        cursor: pointer;
+                        color: white;
+                        border: 0.1rem solid $blue;
+                        border-radius: 1rem;
+                        font-weight: bolder;
+
+                        &:hover{
+                            background-color: red;
+                        }
+                    }
+                }
+      
+                .body {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 1rem;
+                    text-align: center;
+                }
+    
+                .footer {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+        
+                button {
+                    width: 6rem;
+                    height: 2.2rem;
+                    margin: 10px;
+                    border: none;
+                    border: 0.1rem solid white;
+                    color: white;
+                    border-radius: 1rem;
+                    font-size: 1rem;
+                    cursor: pointer;
+            
+                    &:hover{
+                        background-color: red;
+                        border: none;
                     }
                 }
             }
