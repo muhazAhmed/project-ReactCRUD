@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
+import Modal from "../components/Model";
 
 const Dashboard = () => {
   const [emp, setEmp] = useState({});
+  const [modalOpen, setModalOpen] = useState(false);
 
-  const location = useLocation();
   const { currentUser } = useContext(AuthContext);
-
-  const empId = location.pathname.split("/")[2];
+  
 
   const fetchEmp =async () => {
     const result = await axios.get("http://localhost:8800/api/user/emp");
@@ -19,31 +19,21 @@ const Dashboard = () => {
   useEffect (() => {
     fetchEmp();
   },[])
-
-  const handleDelete = async () => {
-    try {
-      await axios.delete(`/user/emp/${empId}`);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  const test = async () => {
-    alert(`Deleted`)
-  }
-
-  const handle = async () => {
-    handleDelete();
-    test();
-  }
-
+  
   return (
+    <div>
+    {modalOpen && <Modal setOpenModal={setModalOpen} />}
     <div className="dash-main">
       <Link to="/employ/add">
         <button data-aos="zoom-out">
           <i className="fa-solid fa-user-plus"></i>{" "}
         </button>
       </Link>
+      <div className="search" data-aos="zoom-in">
+        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+      <input type="search" placeholder="Search"/>
+      </div>
+      
       <table className="table">
         <thead data-aos="slide-up">
           <tr>
@@ -58,22 +48,24 @@ const Dashboard = () => {
         </thead>
         <tbody data-aos="slide-up">
           {Object.entries(emp).map((item, index) => (
-            <tr key={item}>
+            <tr key={item[1]._id}>
               <td>{index+1}</td>
-              <td>{item[1].Name}{console.log(item)} </td>
+              <td>{item[1].Name}</td>
               <td>{item[1].Age}</td>
               <td>{item[1].Salary}</td>
               <td>{item[1].Designation}</td>
             <td data-label="Update">
               {currentUser.username === emp.Name && (
-                <Link to={`/employ/edit`}>
+                <Link to={`/employ/edit/${item[1]._id}`}>
                   <i className="fa-regular fa-pen-to-square"></i>
                 </Link>
               )}
             </td>
             <td data-label="Delete">
               {
-                <Link onClick={handle}>
+                <Link onClick={() => { 
+                  setModalOpen(true)
+                  }}>
                   <i className="fa-solid fa-trash"></i>
                 </Link>
               }
@@ -83,6 +75,7 @@ const Dashboard = () => {
           
         </tbody>
       </table>
+    </div>
     </div>
   );
 };
