@@ -116,6 +116,7 @@ const loginUser = async function (req, res) {
 const updateUser = async (req,res) => {
     try {
       let body = req.body
+      
         const updatedUser = await userModel.updateOne({_id: req.params.id}, {$set : body})
         return res.status(200).json(updatedUser)
     } catch (error) {
