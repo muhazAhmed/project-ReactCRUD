@@ -38,9 +38,24 @@ const getEmp = async (req,res) => {
         return res.status(500).json(error.message);
     }
 }
+
+const getEmpById = async (req,res) => {
+    try {
+        let data = req.body
+        let {Name, Age, Salary, Designation} = data
+
+        let getData = await empModel.findById({_id: req.params.id})
+        return res.status(200).json(getData)
+
+    } catch (error) {
+        return res.status(500).json(error.message);
+    }
+}
+
 const updateEmp = async (req,res) => {
     try {
         let body = req.body
+
         const updatedEmp = await empModel.updateOne({_id: req.params.id}, {$set : body})
         return res.status(200).json(updatedEmp)
 
@@ -51,22 +66,13 @@ const updateEmp = async (req,res) => {
 const deleteEmp = async (req,res) => {
     try {
         const empId = req.params.id
-        const token = req.cookies.access_token
-        if (!token) {
-            return res.status(401).json("You are not allowed")
-        }
-        jwt.verify(token, process.env.JWT_SECRET, (err, empInfo) => {
-            if(err) {
-                return res.status(401).json(err.message)
-            }
             
-            const deletedEmp = empModel.findByIdAndDelete({_id : empId})
-            return res.status(200).json("Employ deleted Successfully")
-        })
+        const deletedEmp = await empModel.deleteOne({_id : empId})
+        return res.status(200).json("Employ deleted Successfully")
 
     } catch (error) {
         return res.status(500).json(error.message);
     }
 }
 
-module.exports = {addEmp, updateEmp, deleteEmp, getEmp}
+module.exports = {addEmp, updateEmp, deleteEmp, getEmp, getEmpById}

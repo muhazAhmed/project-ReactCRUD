@@ -15,6 +15,7 @@ router.delete("/api/user/:id", userController.deleteUser);
 //=======================> Employ <====================
 
 router.get("/api/user/emp", empController.getEmp)
+router.get("/api/user/emp/:id", empController.getEmpById)
 router.post("/api/user/emp", empController.addEmp)
 router.put("/api/user/emp/:id", empController.updateEmp)
 router.delete("/api/user/emp/:id", empController.deleteEmp)
