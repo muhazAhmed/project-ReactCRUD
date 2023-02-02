@@ -40,7 +40,7 @@ const Employ = () => {
   
   useEffect (() => {
     fetchEmp();
-  },[])
+  })
 
     return (
       <div className="auth2">
