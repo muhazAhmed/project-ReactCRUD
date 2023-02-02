@@ -168,13 +168,24 @@ $blue : rgb(62, 223, 255);
 
     .dash-main{
         box-sizing: border-box;
-        margin-top: 5em;
+        margin-top: 3rem;
+
+        .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+
+            h1{
+                margin-right: 36rem;
+            }
+        }
 
         .search{
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             
             i{
                 position: absolute;

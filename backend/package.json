@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon indesx.js"
+    "dev": "nodemon indesx.js",
+    "build" : "npm i"
   },
   "author": "",
   "license": "ISC",
