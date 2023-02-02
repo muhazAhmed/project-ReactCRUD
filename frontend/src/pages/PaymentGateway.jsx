@@ -6,6 +6,8 @@ const PaymentGateway = () => {
   const [buy, setbuy] = useState({
     amount : 10
   })
+  
+  setbuy()
 
   const initPayment = (data) => {
 		const options = {
