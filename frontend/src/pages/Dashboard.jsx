@@ -7,6 +7,8 @@ import Modal from "../components/Model";
 const Dashboard = () => {
   const [emp, setEmp] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
 
   const { currentUser } = useContext(AuthContext);
 
@@ -33,7 +35,7 @@ const Dashboard = () => {
         </div>
         <div className="search" data-aos="zoom-in">
           <i className="fa-sharp fa-solid fa-magnifying-glass"></i>
-          <input type="search" placeholder="Search" />
+          <input type="search" placeholder="Search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
         </div>
 
         <table className="table">
@@ -49,7 +51,8 @@ const Dashboard = () => {
             </tr>
           </thead>
           <tbody data-aos="slide-up">
-            {Object.entries(emp).map((item, index) => (
+          {Object.entries(emp).filter((item) => 
+          item[1].Name.toLowerCase().includes(searchQuery.toLowerCase())).map((item, index) => (
               <tr key={item[1]._id}>
                 <td>{index + 1}</td>
                 <td>{item[1].Name}</td>
