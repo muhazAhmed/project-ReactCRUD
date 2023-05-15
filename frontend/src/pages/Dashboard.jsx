@@ -8,6 +8,8 @@ const Dashboard = () => {
   const [emp, setEmp] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedEmployeeId, setSelectedEmployeeId] = useState(null);
+
 
 
   const { currentUser } = useContext(AuthContext);
@@ -17,13 +19,27 @@ const Dashboard = () => {
     setEmp(result.data);
   };
 
+  const updateEmpData = async () => {
+    try {
+      const result = await axios.get("http://localhost:8800/api/user/emp");
+      setEmp(result.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   useEffect(() => {
     fetchEmp();
   }, []);
 
   return (
     <div>
-      {modalOpen && <Modal setOpenModal={setModalOpen} />}
+      {modalOpen && ( <Modal 
+        setOpenModal={setModalOpen} 
+        employeeId={selectedEmployeeId} 
+        setSelectedEmployeeId={setSelectedEmployeeId}
+        updateEmpData={fetchEmp}
+      /> )}
       <div className="dash-main">
         <div className="header">
           <Link to="/employ/add">
@@ -67,15 +83,12 @@ const Dashboard = () => {
                   )}
                 </td>
                 <td data-label="Delete">
-                  {
-                    <Link
-                      onClick={() => {
-                        setModalOpen(true);
-                      }}
-                    >
-                      <i className="fa-solid fa-trash"></i>
-                    </Link>
-                  }
+                  <Link onClick={() => {
+                    setSelectedEmployeeId(item[1]._id);
+                    setModalOpen(true);
+                  }} >
+                  <i className="fa-solid fa-trash"></i>
+                  </Link>
                 </td>
               </tr>
             ))}

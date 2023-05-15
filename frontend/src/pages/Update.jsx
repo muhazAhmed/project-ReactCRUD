@@ -40,6 +40,7 @@ const Update = () => {
           required
           type="text"
           placeholder="username"
+          value={inputs.username}
           name="username"
           onChange={handleChange}
         />
@@ -47,6 +48,7 @@ const Update = () => {
           required
           type="email"
           placeholder="email"
+          value={inputs.email}
           name="email"
           onChange={handleChange}
         />
@@ -54,6 +56,7 @@ const Update = () => {
           required
           type="number"
           placeholder="phone"
+          value={inputs.phone}
           name="phone"
           onChange={handleChange}
         />
