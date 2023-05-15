@@ -38,7 +38,7 @@ const Dashboard = () => {
         setOpenModal={setModalOpen} 
         employeeId={selectedEmployeeId} 
         setSelectedEmployeeId={setSelectedEmployeeId}
-        updateEmpData={fetchEmp}
+        updateEmpData={updateEmpData}
       /> )}
       <div className="dash-main">
         <div className="header">

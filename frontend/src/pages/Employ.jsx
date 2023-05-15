@@ -33,6 +33,7 @@ const Employ = () => {
 
   useEffect(() => {
     fetchEmp();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
