@@ -8,6 +8,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [isInputValid, setInputValid] = useState(false);
   const [err, setError] = useState(null);
 
   const navigate = useNavigate();
@@ -16,7 +17,11 @@ const Login = () => {
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  
+    const { email, password } = input;
+    setInputValid(email.trim().length > 0 && password.trim().length > 0);
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +41,7 @@ const Login = () => {
       <h1>LOGIN</h1>
         <input required type="email" placeholder="email" name='email' onChange={handleChange} />   
         <input required type="password" placeholder="password" name='password' onChange={handleChange}/> 
-        <button  onClick={handleSubmit} className='form-btn'>Login</button>
+        <button  onClick={handleSubmit} className='form-btn' disabled={!isInputValid}>Login</button>
         {err && <p>{err}</p>}
         <span>New member? <Link style={{textDecoration: "none", color : '#ff9899'}} to="/register">Register</Link></span>
       </form></div>

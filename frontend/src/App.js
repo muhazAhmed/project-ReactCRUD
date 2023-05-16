@@ -1,10 +1,6 @@
 import React from "react";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Outlet,
-} from "react-router-dom";
-import "./style.scss"
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import "./style.scss";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
@@ -22,9 +18,9 @@ import NotFound from "./pages/NotFound";
 function Layout() {
   return (
     <>
-      <Navbar/>
-      <Outlet/>
-      <Footer/>
+      <Navbar />
+      <Outlet />
+      <Footer />
     </>
   );
 }
@@ -32,28 +28,31 @@ function Layout() {
 const router = createBrowserRouter([
   {
     path: "/",
-        element : <Layout/>,
-        children: [
-            {path: "/", element: <Home />},
-            {path: "/user/dashboard", element: <Dashboard />},
-            {path: "/user/update", element: <Update />},
-            {path: "/contact", element: <Contact />},
-            {path: "/about", element: <About />},
-            {path: "/donate", element: <PaymentGateway />},
-            {path: "/employ/edit/:id", element: <Employ /> },
-            {path: "/employ/add", element: <AddEmp /> },
-            {path : "/*", element: <NotFound/>}
-        ],
+    element: <Layout />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/user/update", element: <Update /> },
+      { path: "/contact", element: <Contact /> },
+      { path: "/about", element: <About /> },
+      { path: "/donate", element: <PaymentGateway /> },
+      { path: "/employ/edit/:id", element: <Employ /> },
+      { path: "/employ/add", element: <AddEmp /> },
+      { path: "/*", element: <NotFound /> },
+    ],
   },
   {
     path: "/Register",
-    element: <Register/>,
+    element: <Register />,
   },
   {
     path: "/Login",
-    element: <Login/>,
+    element: <Login />,
   },
-])
+  {
+    path: "/user/dashboard",
+    element: <Dashboard />,
+  },
+]);
 
 function App() {
   return (

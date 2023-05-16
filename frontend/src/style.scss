@@ -1,58 +1,56 @@
-*{
+* {
     background-color: black;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
     color: white;
 }
 
-$blue : rgb(62, 223, 255);
+$blue: rgb(62, 223, 255);
 
-.app{
+.app {
     display: flex;
     justify-content: center;
 
-    .link{
+    .link {
         text-decoration: none;
     }
 
-    .navbar{
-        .container{
+    .navbar {
+        .container {
             padding: 1em 0em;
             display: flex;
-            justify-content:space-around;
+            justify-content: space-around;
 
-
-            .logo{
-                img{
+            .logo {
+                img {
                     width: 10em;
                     margin-right: 50em;
                 }
             }
-            .links{
+            .links {
                 display: flex;
                 align-items: center;
                 gap: 2em;
 
-                h6{
+                h6 {
                     font-size: 1em;
                     font-weight: 300;
 
-                    &:hover{
+                    &:hover {
                         color: $blue;
                     }
                 }
-                
-                span{
+
+                span {
                     cursor: pointer;
 
-                    &:hover{
+                    &:hover {
                         color: $blue;
                     }
                 }
-                
             }
-        }        
+        }
     }
-    .footer{
+    .footer {
         margin-top: 10em;
         display: flex;
         align-items: center;
@@ -60,27 +58,26 @@ $blue : rgb(62, 223, 255);
         color: rgb(170, 161, 161);
         font-size: 0.8em;
 
-        button{
+        button {
             color: rgb(170, 161, 161);
             font-size: 0.8em;
             margin-left: 100%;
             cursor: pointer;
 
-            &:hover{
+            &:hover {
                 color: $blue;
             }
         }
     }
 
-    .home-main{
+    .home-main {
         display: flex;
         flex-direction: column;
         margin-top: 10em;
         align-items: center;
         justify-content: center;
 
-
-        .btn-home{
+        .btn-home {
             padding: 1em;
             border: 0.2em solid $blue;
             border-radius: 0.8em;
@@ -88,22 +85,20 @@ $blue : rgb(62, 223, 255);
             margin-top: 8em;
             cursor: pointer;
             color: white;
-    
-            &:hover{
+
+            &:hover {
                 background-color: $blue;
             }
         }
-    
     }
-    .auth2{
+    .auth2 {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         margin-bottom: 1em;
-        
 
-        .xt{
+        .xt {
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -111,12 +106,11 @@ $blue : rgb(62, 223, 255);
             border: 0.2em solid $blue;
             height: 50vh;
             width: 40vw;
-            border-radius: 1em; 
+            border-radius: 1em;
             margin-top: 9em;
-
         }
-    
-        h1{
+
+        h1 {
             font-size: 1.2em;
             color: $blue;
             margin-bottom: 1.2em;
@@ -124,8 +118,7 @@ $blue : rgb(62, 223, 255);
             justify-content: center;
         }
 
-    
-        form{
+        form {
             display: flex;
             flex-direction: column;
             padding: 4em;
@@ -134,142 +127,160 @@ $blue : rgb(62, 223, 255);
             width: 15em;
             height: 20em;
             gap: 1.2em;
-    
-            input{
+
+            input {
                 padding: 1em;
                 border: none;
                 border: 0.1em solid gray;
                 border-radius: 0.8em;
             }
-    
-            .form-btn{
+
+            .form-btn {
                 padding: 1em;
                 border: 0.2em solid $blue;
                 border-radius: 0.8em;
                 cursor: pointer;
                 color: white;
-    
-                &:hover{
+
+                &:hover {
                     background-color: $blue;
                 }
+
+                &:disabled {
+                    cursor: not-allowed;
+                }
             }
-            
-            p{
+
+            p {
                 font-size: 0.9em;
                 color: red;
                 text-align: center;
             }
-    
-            span{
+
+            span {
                 font-size: small;
                 text-align: center;
             }
         }
     }
 
-    .dash-main{
+    .dash-main {
         box-sizing: border-box;
-        margin-top: 3rem;
+        // margin-top: 3rem;
 
-        .header{
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
+            // margin-bottom: 2rem;
 
-            h1{
+            h1 {
                 margin-right: 36rem;
             }
         }
 
-        .search{
+        .search {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 2rem;
-            
-            i{
+
+            i {
                 position: absolute;
                 margin-right: 11rem;
             }
-            
-            input{
-            width: 14rem;
-            height: 2.5rem;
-            border: 0.2rem solid $blue;
-            border-radius: 2rem;
-            text-align: center;
-            
-            &:focus{
-                border: none;
+
+            input {
+                width: 14rem;
+                height: 2.5rem;
+                border: 0.2rem solid $blue;
+                border-radius: 2rem;
+                text-align: center;
+
+                &:focus {
+                    border: none;
+                }
             }
         }
-        }
-        
-        
-        button{
+
+        button {
             padding: 1em;
             width: 7em;
             border: 0.2em solid $blue;
             border-radius: 0.8em;
             cursor: pointer;
             margin-bottom: 1em;
-            i{
+            i {
                 background-color: transparent;
             }
-            
-            &:hover{
+
+            &:hover {
                 background-color: $blue;
             }
         }
-        
-        .table{
+
+        .table {
             width: 100%;
-            
-            th{
+
+            th {
                 padding: 0.8em 0.9em;
                 border: 0.01em solid $blue;
                 background-color: $blue;
                 color: black;
             }
-            td{
+            td {
                 padding: 0.8em 0.9em;
                 text-align: center;
                 border: 0.01em solid $blue;
 
-                
-                .fa-regular{
+                .fa-regular {
                     cursor: pointer;
-                    
-                    &:hover{
+
+                    &:hover {
                         color: rgb(66, 255, 82);
                     }
                 }
 
-                .fa-solid{
+                .fa-solid {
                     cursor: pointer;
 
-                    &:hover{
+                    &:hover {
                         color: rgb(255, 58, 58);
                     }
                 }
             }
         }
+
+        .pagination-btn {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-around;
+            button {
+                width: 10vw;
+
+                &:disabled {
+                    cursor: not-allowed;
+                    background-color: gray;
+                    border: none;
+                    border-radius: 0%;
+                }
+            }
+        }
     }
-    .contact{
+    .contact {
         display: flex;
         justify-content: center;
 
-        h1{
+        h1 {
             display: flex;
             justify-content: center;
 
-            span{
+            span {
                 color: $blue;
             }
         }
 
-        .form{
+        .form {
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -277,53 +288,53 @@ $blue : rgb(62, 223, 255);
             border: 0.2em solid $blue;
             height: 48vh;
             width: 45vw;
-            border-radius: 1em; 
+            border-radius: 1em;
             margin-top: 5em;
-            
+
             form {
                 display: flex;
-            flex-direction: column;
-            padding: 3em;
-            border: 0.1em solid $blue;
-            border-radius: 1.5em;
-            width: 15em;
-            gap: 1.2em;
-    
-            input{
-                padding: 1em;
+                flex-direction: column;
+                padding: 3em;
+                border: 0.1em solid $blue;
+                border-radius: 1.5em;
                 width: 15em;
-                border: none;
-                border: 0.1em solid gray;
-                border-radius: 0.8em;
-            }
-            .msg input{
-                height: 5em;
-            }
-            
-            button{
-                display: flex;
-                justify-content: center;
-                margin-left: 3em;
-                padding: 1em;
-                width: 10em;
-                border: 0.2em solid $blue;
-                border-radius: 0.8em;
-                cursor: pointer;
-                color: white;
-    
-                &:hover{
-                    background-color: $blue;
+                gap: 1.2em;
+
+                input {
+                    padding: 1em;
+                    width: 15em;
+                    border: none;
+                    border: 0.1em solid gray;
+                    border-radius: 0.8em;
                 }
-            }
+                .msg input {
+                    height: 5em;
+                }
+
+                button {
+                    display: flex;
+                    justify-content: center;
+                    margin-left: 3em;
+                    padding: 1em;
+                    width: 10em;
+                    border: 0.2em solid $blue;
+                    border-radius: 0.8em;
+                    cursor: pointer;
+                    color: white;
+
+                    &:hover {
+                        background-color: $blue;
+                    }
+                }
             }
         }
     }
-    .cont-404{
+    .cont-404 {
         height: 60vh;
         display: flex;
         justify-content: center;
 
-        img{
+        img {
             height: 70vh;
             width: 50vw;
         }
@@ -341,49 +352,43 @@ $blue : rgb(62, 223, 255);
                 font-size: 1.5rem;
                 padding: 20px;
                 text-align: center;
-
-                
             }
 
-            .form-btn{
-                button{
-                padding: 1em;
-                border: 0.2em solid $blue;
-                border-radius: 0.8em;
-                cursor: pointer;
-                color: white;
-    
-                &:hover{
-                    background-color: $blue;
+            .form-btn {
+                button {
+                    padding: 1em;
+                    border: 0.2em solid $blue;
+                    border-radius: 0.8em;
+                    cursor: pointer;
+                    color: white;
+
+                    &:hover {
+                        background-color: $blue;
+                    }
                 }
             }
-            }
-            
         }
     }
-        .payment{
+    .payment {
+        display: flex;
+        justify-content: center;
+        border: 0.2em solid $blue;
+        width: 20em;
+        height: 13em;
+        align-items: center;
+        margin-left: 39%;
+        margin-bottom: 10%;
+        border-radius: 2em;
 
-            display: flex;
-            justify-content: center;
-            border: 0.2em solid $blue;
-            width: 20em;
-            height: 13em;
-            align-items: center;
-            margin-left: 39%;
-            margin-bottom: 10%;
-            border-radius: 2em;
-
-
-            .pymnt-container{
-
-            .pymnt-price{
+        .pymnt-container {
+            .pymnt-price {
                 margin-left: 0.8em;
                 span {
                     color: aqua;
                 }
             }
 
-            button{
+            button {
                 display: flex;
                 border: 0.2em solid $blue;
                 height: 3em;
@@ -394,16 +399,16 @@ $blue : rgb(62, 223, 255);
                 margin-top: 2em;
                 cursor: pointer;
 
-                &:hover{
+                &:hover {
                     background-color: $blue;
                 }
             }
         }
     }
 
-    .about{
+    .about {
         height: 93vh;
-        h1{
+        h1 {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -411,13 +416,13 @@ $blue : rgb(62, 223, 255);
             margin-bottom: 2em;
         }
 
-        .row{
+        .row {
             display: grid;
             grid-template-columns: auto auto auto;
             padding: 10px;
             gap: 2em;
-            
-            .service{
+
+            .service {
                 padding: 0.9em;
                 font-size: 1.2em;
                 text-align: center;
@@ -425,29 +430,27 @@ $blue : rgb(62, 223, 255);
                 border-radius: 3em;
                 cursor: pointer;
 
-                i{
+                i {
                     font-size: 2em;
                     color: $blue;
                     background-color: transparent;
                 }
-                
-                h2{
+
+                h2 {
                     color: auto;
                     background-color: transparent;
-
                 }
-                
-                p{
+
+                p {
                     color: auto;
                     background-color: transparent;
-
                 }
 
-                &:hover{
+                &:hover {
                     background-color: $blue;
                     transition: 0.6s;
 
-                    i{
+                    i {
                         color: white;
                     }
                 }
@@ -462,52 +465,52 @@ $blue : rgb(62, 223, 255);
         align-items: center;
         margin-left: 20rem;
         border-radius: 2rem;
-        
-            .modalContainer {
-                border: 0.2rem solid white;
-                width: 48rem;
-                height: 22rem;
-                padding: 1rem;
-                border-radius: 2rem;
-                display: flex;
-                flex-direction: column;
-        
-                .title {
-                    text-align: center;
-                    margin-top: 10px;
-                }
-      
-                .titleCloseBtn {
-                    display: flex;
-                    justify-content: flex-end;
-        
-                    button {
-                        font-size: 1.1rem;
-                        cursor: pointer;
-                        color: white;
-                        border: 0.1rem solid $blue;
-                        border-radius: 1rem;
-                        font-weight: bolder;
 
-                        &:hover{
-                            background-color: red;
-                        }
+        .modalContainer {
+            border: 0.2rem solid white;
+            width: 48rem;
+            height: 22rem;
+            padding: 1rem;
+            border-radius: 2rem;
+            display: flex;
+            flex-direction: column;
+
+            .title {
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .titleCloseBtn {
+                display: flex;
+                justify-content: flex-end;
+
+                button {
+                    font-size: 1.1rem;
+                    cursor: pointer;
+                    color: white;
+                    border: 0.1rem solid $blue;
+                    border-radius: 1rem;
+                    font-weight: bolder;
+
+                    &:hover {
+                        background-color: red;
                     }
                 }
-      
-                .body {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 1rem;
-                    text-align: center;
-                }
-    
-                .footer {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-        
+            }
+
+            .body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1rem;
+                text-align: center;
+            }
+
+            .footer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
                 button {
                     width: 6rem;
                     height: 2.2rem;
@@ -518,8 +521,8 @@ $blue : rgb(62, 223, 255);
                     border-radius: 1rem;
                     font-size: 1rem;
                     cursor: pointer;
-            
-                    &:hover{
+
+                    &:hover {
                         background-color: red;
                         border: none;
                     }
