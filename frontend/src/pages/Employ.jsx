@@ -11,7 +11,7 @@ const Employ = () => {
   const id = location.pathname.split("/")[3];
   
   const fetchEmp = async () => {
-    const res = await axios.get(`http://localhost:8800/api/user/emp/${id}`);
+    const res = await axios.get(`https://react-crud-v3am.onrender.com/api/user/emp/${id}`);
     setValue(res.data);
   };
 
