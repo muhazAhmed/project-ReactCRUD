@@ -16,13 +16,13 @@ const Dashboard = () => {
   const { currentUser } = useContext(AuthContext);
 
   const fetchEmp = async () => {
-    const result = await axios.get("http://localhost:8800/api/user/emp");
+    const result = await axios.get("https://react-crud-v3am.onrender.com/api/user/emp");
     setEmp(result.data);
   };
 
   const updateEmpData = async () => {
     try {
-      const result = await axios.get("http://localhost:8800/api/user/emp");
+      const result = await axios.get("https://react-crud-v3am.onrender.com/api/user/emp");
       setEmp(result.data);
     } catch (error) {
       console.log(error.message);

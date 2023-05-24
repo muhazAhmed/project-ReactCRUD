@@ -6,7 +6,7 @@ function Modal({ setOpenModal, employeeId, setSelectedEmployeeId, updateEmpData 
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8800/api/user/emp/${employeeId}`);
+      await axios.delete(`https://react-crud-v3am.onrender.com/api/user/emp/${employeeId}`);
       updateEmpData();
     } catch (error) {
       console.log(error.message);

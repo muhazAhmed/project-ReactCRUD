@@ -18,7 +18,7 @@ const PaymentGateway = () => {
 			order_id: data.id,
 			handler: async (response) => {
 				try {
-					const verifyUrl = "http://localhost:8800/api/payment/verify";
+					const verifyUrl = "https://react-crud-v3am.onrender.com/api/payment/verify";
 					const { data } = await axios.post(verifyUrl, response);
 					console.log(data);
 				} catch (error) {
@@ -35,7 +35,7 @@ const PaymentGateway = () => {
 
   const handlePayment =  async () => {
     try {
-      const orderUrl = "http://localhost:8800/api/payment";
+      const orderUrl = "https://react-crud-v3am.onrender.com/api/payment";
       const {data} = await axios.post(orderUrl, {amount : buy.amount})
       initPayment(data.data);
     } catch (error) {

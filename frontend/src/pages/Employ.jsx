@@ -24,7 +24,7 @@ const Employ = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8800/api/user/emp/${id}`, value);
+      await axios.put(`https://react-crud-v3am.onrender.com/api/user/emp/${id}`, value);
       navigate("/user/dashboard");
     } catch (error) {
       setError(error.message);
