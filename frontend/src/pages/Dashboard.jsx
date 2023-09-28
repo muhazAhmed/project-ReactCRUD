@@ -21,7 +21,7 @@ const Dashboard = () => {
     setIsLoading(true); // Set loading state to true
     try {
       const result = await axios.get(
-        "http://localhost:8800/api/user/emp"
+        "https://react-crud-v3am.onrender.com/api/user/emp"
       );
       setEmp(result.data);
     } catch (error) {
